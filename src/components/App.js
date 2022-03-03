@@ -14,6 +14,7 @@ function App() {
   
   const isLogin=localStorage.getItem("isAuth")
   
+  
 const updateAdmin=(val)=>{
   localStorage.clear();
   setadminPage(val)
@@ -22,8 +23,8 @@ const updateAdmin=(val)=>{
   return ( 
     <Router>
   <div> <Switch>    
-  {adminPage|| isLogin  ? <AdminNav/> : <Login setadminPage={setadminPage} />} 
-  <Route path="/"><AdminNav setadminPage={setadminPage} updateAdmin={updateAdmin} /> </Route>
+  {adminPage|| isLogin  ? <AdminNav setadminPage={setadminPage} updateAdmin={updateAdmin} /> : <Login setadminPage={setadminPage} />} 
+  <Route path="/"><AdminNav /> </Route>
   
   </Switch></div> 
 </Router>

@@ -28,6 +28,7 @@ const handleShow=(data)=>{
           console.log(err)
         }
       }
+      
   return (
     <div>
    
@@ -52,12 +53,12 @@ const handleShow=(data)=>{
       <td>{data.role}</td>
       <td><button className="btn btn-primary" onClick={()=>{handleShow(data)}}>Edit</button></td>
     </tr>
-}):<tr><td>Loading.... </td></tr>}
+}):<tr><td><img src="https://cutewallpaper.org/24/loading-gif-png/loading-gif-images-free-psd-templatespng-and-vector-download.gif"/></td></tr>}
     
   </tbody>
 </Table>
 <EditUsers editableData={editableData} seteditableData={seteditableData} userData={userData} fetchSamples={fetchSamples}
-showEditData={showEditData} setuserData={setuserData} setshowEditData={setshowEditData}/>
+showEditData={showEditData}  setuserData={setuserData} setshowEditData={setshowEditData}/>
     </div>
   )
 }

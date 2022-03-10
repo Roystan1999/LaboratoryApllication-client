@@ -1,23 +1,24 @@
-import React, { useState } from "react"
+import React from "react"
 
 import { Button } from 'react-bootstrap'
-import { BrowserRouter as Router, Link, NavLink, Redirect, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Link, NavLink,  Route } from 'react-router-dom'
 import Home from './Home'
-import Login from './Login'
 import RegData from './RegData'
 import Register from './Register'
 import UserSamples from './UserSamples'
 
 
-function AdminNav(props) {
+function AdminNav() {
+ 
+
 
   return (
     <div>
       <Router>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
-            <Link className="navbar-brand" href="#">
-              Laboratory
+            <Link className="navbar-brand" to="#">
+             careLAB
             </Link>
 
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -63,7 +64,6 @@ function AdminNav(props) {
         <Route path="/register" component={Register} />
         <Route path="/edit" component={RegData} />
         <Route path="/samples" component={UserSamples}/>
-        {/* <Route path="/login" component={Login}/> */}
 
       </Router>
 

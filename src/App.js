@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { BrowserRouter as Router,Switch,Route } from 'react-router-dom'
 
-import ReactDOM from 'react-dom';
 import './App.css';
 import Login from './components/Login';
 
@@ -14,20 +13,19 @@ function App() {
   
   const isLogin=localStorage.getItem("isAuth")
   
-const updateAdmin=(val)=>{
-  localStorage.clear();
-  setadminPage(val)
-}
+
 
   return ( 
+    <div>
     <Router>
   <div> <Switch>    
-  {adminPage|| isLogin  ? <AdminNav/> : <Login setadminPage={setadminPage} />} 
-  <Route path="/"><AdminNav setadminPage={setadminPage} updateAdmin={updateAdmin} /> </Route>
+  {adminPage || isLogin  ? <AdminNav /> : <Login setadminPage={setadminPage} />}
+  {!isLogin && <Login/>} 
+  <Route path="/"><AdminNav /> </Route>
   
   </Switch></div> 
 </Router>
+  </div>
 )
 }
-
 export default App;

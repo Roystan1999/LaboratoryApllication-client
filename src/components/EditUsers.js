@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
@@ -8,15 +8,18 @@ function EditUsers(props) {
     const [user, setuser] = useState({
         _id: '',
         name: '',
-        email: '',
+        email: '',   
         role: '',
     });
     const history = useHistory()
+
     useEffect(() => {
         setShow(props.showEditData)
     }, [props.showEditData])
-    
-  
+
+//    useEffect(()=>{
+//        props.userData()
+//    },[])
 
 
     useEffect(() => {
@@ -33,22 +36,23 @@ function EditUsers(props) {
         userCopy[event.target.name] = event.target.value
         setuser(userCopy)
     }
+    
     const editProduct = async () => {
         console.log(user);
         let url = 'http://localhost:3002/users/edit'
-        
+
         try {
-                const response = await axios.put(url, user)
-                console.log(response.data);
-                if (response.data.error === false) {
-                    handleClose()
-                    props.history.push('/userdetails')
-                    history.location.reload()
-                } else {
-                    alert(response.data.message)
-                }
+            const response = await axios.put(url, user)
+            console.log(response.data);
+            if (response.data.error === false) {
+                handleClose()
+                props.history.push('/userdetails')
+                history.location.reload()
+            } else {
+                alert(response.data.message)
             }
-         catch (err) {
+        }
+        catch (err) {
             console.log(err);
         }
     }
@@ -67,7 +71,7 @@ function EditUsers(props) {
                                     name="_id"
                                     value={user._id}
                                     onChange={(event) => { handleChange(event) }}
-                                    className="form-control" placeholder="User Id" disabled/>
+                                    className="form-control" placeholder="User Id" disabled />
                             </div>
                             <div className="col">
                                 <input type="text"
@@ -100,7 +104,7 @@ function EditUsers(props) {
                         Close
                     </Button>
                     <Button variant="primary" onClick={editProduct}>
-                      update changes
+                        update changes
                     </Button>
                 </Modal.Footer>
             </Modal>

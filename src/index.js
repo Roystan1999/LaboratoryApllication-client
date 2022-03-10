@@ -5,14 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter } from 'react-router-dom';
+import ErrorBoundary from './components/error-boundary/ErrorBooundary';
+
 
 
 ReactDOM.render(
   <React.StrictMode>
   <BrowserRouter>
-    <App/>
+  <ErrorBoundary>
+  <App/>
+
+  </ErrorBoundary>
 
   </BrowserRouter>
+ 
   </React.StrictMode>,
   document.getElementById('root')
   

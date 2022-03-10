@@ -31,7 +31,7 @@ describe("input field test",()=>{
 })
 
 
-describe("input field test",()=>{
+describe("reg email  field testt" ,()=>{
     it("Reg render",()=>{
         let {queryByTitle}=render (<Register/>)
         let input = queryByTitle("Regemail")
@@ -46,7 +46,7 @@ describe("input field test",()=>{
 })
 
 
-describe("input field test",()=>{
+describe("reg pass field test",()=>{
     it("login render",()=>{
         let {queryByTitle}=render (<Register/>)
         let input = queryByTitle("Regpass")
